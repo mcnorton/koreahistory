@@ -170,6 +170,7 @@ p { margin: 0 0 1em; }
 .btn { font: inherit; background: var(--jjok); color: #fff; border: 0; border-radius: 4px; padding: 11px 26px; cursor: pointer; }
 .btn:hover { background: #142a49; }
 .btn[disabled] { opacity: .6; cursor: progress; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 .status { margin-top: 16px; min-height: 1.8em; }
 .status.bad { color: var(--seal); }
 .status.good { color: var(--jade); }
