@@ -1,3 +1,5 @@
+> 한국역사연표 사이트를 **[koreahistory.mcnorton.com](https://koreahistory.mcnorton.com)** 으로 옮겼습니다. 이 브랜치는 이전 사이트 기록입니다.
+
 [HOME](https://mcnorton.github.io/korea_history) | 
 [사용설명서](https://mcnorton.github.io/korea_history/wiki) | 
 [버전이력](https://mcnorton.github.io/korea_history/history) |
