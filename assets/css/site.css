@@ -40,10 +40,7 @@ p { margin: 0 0 1em; }
   max-width: 1240px; margin: 0 auto; padding: 18px var(--gutter);
 }
 .brand { display: inline-flex; align-items: center; gap: 12px; font: 400 1.25rem/1 var(--display); color: var(--jjok); text-decoration: none; }
-.brand-seal {
-  display: grid; place-items: center; width: 34px; height: 34px; background: var(--seal); color: #f7efe0;
-  font: 400 .8125rem/1.02 var(--display); text-align: center; border-radius: 3px; flex: none;
-}
+.brand-icon { width: 36px; height: 36px; border-radius: 8px; flex: none; }
 .top nav { display: flex; flex-wrap: wrap; gap: 2px 18px; font-size: .9375rem; }
 .top nav a { color: var(--ink); text-decoration: none; padding: 4px 0; }
 .top nav a:hover, .top nav a[aria-current] { color: var(--seal); text-decoration: underline; }
@@ -60,7 +57,6 @@ p { margin: 0 0 1em; }
 .stores a { display: block; border-radius: 10px; transition: transform .15s ease; }
 .stores a:hover { transform: translateY(-2px); }
 .stores img { height: 62px; width: auto; }
-.stores .play img { height: 62px; }
 .small { font-size: .9375rem; color: var(--ink-soft); }
 .hero .small { margin: 18px 0 0; max-width: 34em; }
 .hero-art { justify-self: center; display: flex; align-items: flex-start; gap: clamp(14px, 3vw, 34px); }
@@ -104,13 +100,24 @@ p { margin: 0 0 1em; }
 
 /* 연도 줄 */
 .span-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 36px; align-items: start; }
-.years { list-style: none; margin: 8px 0 0; padding: 0; }
+.years { list-style: none; margin: 8px 0 0; padding: 0; max-width: 40em; }
 .years li { display: grid; grid-template-columns: 7.2em minmax(0, 1fr); gap: 12px; padding: 11px 0; border-bottom: 1px solid var(--rule); align-items: baseline; }
 .years time, .years .y { font: 400 1.0625rem/1.35 var(--display); color: var(--jjok); }
 .years .world { color: var(--jade); }
 .years .world .y { color: var(--jade); }
 .tag { font-size: .8125rem; border: 1px solid currentColor; border-radius: 3px; padding: 0 5px; margin-left: 6px; white-space: nowrap; }
 .pair { margin-top: 26px; }
+.years--dated { max-width: 44em; }
+.years--dated li { grid-template-columns: 10em minmax(0, 1fr); }
+
+/* 한국사와 세계사 비교 */
+.compare { width: 100%; border-collapse: collapse; margin-top: 22px; }
+.compare caption { text-align: left; font-size: .9375rem; color: var(--ink-soft); padding-bottom: 8px; }
+.compare th, .compare td { text-align: left; font-weight: 400; vertical-align: baseline; padding: 11px 14px 11px 0; border-bottom: 1px solid var(--rule); }
+.compare thead th { font-size: .9375rem; color: var(--jjok); border-bottom: 2px solid var(--jjok); padding-block: 4px 8px; }
+.compare thead th:last-child { color: var(--jade); }
+.compare tbody th { font: 400 1.0625rem/1.35 var(--display); color: var(--jjok); white-space: nowrap; }
+.compare td.world { color: var(--jade); }
 
 /* 기능 */
 .feature { display: grid; grid-template-columns: minmax(0, 1fr); gap: 26px; padding: 26px 0; border-top: 1px solid var(--rule); align-items: start; }
@@ -174,12 +181,20 @@ p { margin: 0 0 1em; }
   .home-grid { grid-template-columns: minmax(0, 1fr) 280px; gap: 52px; }
   .home-grid .device { width: 280px; }
 }
+@media (max-width: 899px) {
+  .stores { justify-content: center; }
+}
 @media (max-width: 560px) {
   :root { --axis: 58px; }
   .slip { display: none; }
-  .stores img, .stores .play img { height: 54px; }
-  .install .stores img { height: 58px; }
-  .years li { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .stores img, .install .stores img { height: 50px; }
+  .stores { gap: 10px 12px; }
+  .years li, .years--dated li { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .compare thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .compare, .compare caption, .compare tbody, .compare tr, .compare th, .compare td { display: block; }
+  .compare tr { padding: 11px 0; border-bottom: 1px solid var(--rule); }
+  .compare th, .compare td { border: 0; padding: 0; }
+  .compare td.world::before { content: attr(data-label) " "; font-size: .8125rem; border: 1px solid currentColor; border-radius: 3px; padding: 0 5px; margin-right: 6px; }
   .mark { font-size: .875rem; padding-right: 12px; padding-top: .45em; }
   .mark::after { top: .55em; }
   .entry--home .mark { font-size: 1rem; }
