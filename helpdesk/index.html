@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>의견 보내기 | 한국역사연표</title>
+<meta name="description" content="한국역사연표에 대한 의견을 보내 주세요.">
+<link rel="canonical" href="https://koreahistory.mcnorton.com/helpdesk/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="한국역사연표">
+<meta property="og:title" content="의견 보내기 | 한국역사연표">
+<meta property="og:description" content="한국역사연표에 대한 의견을 보내 주세요.">
+<meta property="og:url" content="https://koreahistory.mcnorton.com/helpdesk/">
+<meta property="og:image" content="https://koreahistory.mcnorton.com/assets/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#1b365d">
+<link rel="icon" href="/assets/img/icon-192.png">
+<link rel="apple-touch-icon" href="/assets/img/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Song+Myung&display=swap">
+<link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+<header class="top">
+  <a class="brand" href="/"><span class="brand-seal" aria-hidden="true">연<br>표</span>한국역사연표</a>
+  <nav aria-label="주 메뉴"><a href="/wiki/">사용설명서</a><a href="/history/">버전 이력</a><a href="/helpdesk/" aria-current="page">의견 보내기</a><a href="/#install">앱 받기</a></nav>
+</header>
+<main id="main">
+<article class="page">
+<h1>의견 보내기</h1>
+<p>틀린 내용, 넣고 싶은 사건, 활용 사례를 알려 주세요.</p>
+<form id="feedback">
+  <label class="field"><span>분류</span>
+    <select name="category" required>
+      <option value="">분류를 선택해 주세요</option>
+      <option value="bug">버그 및 오류 신고</option>
+      <option value="feature">추가 요청</option>
+      <option value="case">활용 사례</option>
+      <option value="general">자유 의견</option>
+    </select></label>
+  <label class="field"><span>의견 내용</span>
+    <textarea name="message" required placeholder="의견을 자유롭게 적어 주세요"></textarea></label>
+  <button class="btn" type="submit">보내기</button>
+  <p class="status" id="status" role="status"></p>
+</form>
+</article>
+</main>
+<footer class="foot">
+  <nav aria-label="사이트 안내"><a href="/wiki/">사용설명서</a><a href="/history/">버전 이력</a><a href="/privacy/">개인정보처리방침</a><a href="/helpdesk/" aria-current="page">의견 보내기</a></nav>
+  <span>2018-2026, McNorton&amp;Education</span>
+</footer>
+<script>
+(function () {
+  var URL_ = 'https://script.google.com/macros/s/AKfycbxGrVhk4Q5ErtZ7sEwvQTvPS-J15Ie1PupY5HbnizQhMCw0YtpXIWqAfNRn1t2YnHA/exec';
+  var form = document.getElementById('feedback');
+  var status = document.getElementById('status');
+  var button = form.querySelector('button');
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    var category = form.category.value;
+    var message = form.message.value;
+    if (!category || !message.trim()) {
+      status.className = 'status bad';
+      status.textContent = '분류와 의견 내용을 모두 입력해 주세요.';
+      return;
+    }
+    button.disabled = true;
+    status.className = 'status';
+    status.textContent = '보내는 중입니다.';
+    try {
+      var res = await fetch(URL_, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({ category: category, message: message, timestamp: new Date().toISOString() })
+      });
+      if (!res.ok) throw new Error('server');
+      form.reset();
+      status.className = 'status good';
+      status.textContent = '의견을 보냈습니다. 고맙습니다.';
+    } catch (err) {
+      status.className = 'status bad';
+      status.textContent = '보내지 못했습니다. 인터넷 연결을 확인하고 다시 보내 주세요.';
+    } finally {
+      button.disabled = false;
+    }
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://koreahistory.mcnorton.com/sitemap.xml
