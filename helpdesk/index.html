@@ -45,7 +45,9 @@
       <option value="general">자유 의견</option>
     </select></label>
   <label class="field"><span>의견 내용</span>
-    <textarea name="message" required maxlength="2000" placeholder="의견을 자유롭게 적어 주세요"></textarea></label>
+    <textarea name="message" required maxlength="2000" placeholder="소중한 의견을 남겨주세요.&#10;개인정보는 입력하지 말아주세요."></textarea></label>
+  <label class="field"><span>별명(선택)</span>
+    <input type="text" name="nickname" maxlength="30" autocomplete="nickname" placeholder="릴리스 노트에 별명(닉네임)을 남겨드릴게요"></label>
   <div class="hp" aria-hidden="true"><label>비워 두세요 <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
   <button class="btn" type="submit">보내기</button>
   <p class="status" id="status" role="status"></p>
@@ -78,7 +80,7 @@
       var res = await fetch(URL_, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ category: category, message: message, website: form.website.value })
+        body: JSON.stringify({ category: category, message: message, nickname: form.nickname.value, website: form.website.value })
       });
       if (!res.ok) throw new Error('server');
       form.reset();

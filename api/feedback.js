@@ -9,6 +9,7 @@ const CATEGORIES = {
   general: '자유 의견',
 };
 const MAX_MESSAGE_LENGTH = 2000;
+const MAX_NICKNAME_LENGTH = 30;
 const MAX_BODY_BYTES = 16 * 1024;
 
 function corsHeaders(origin) {
@@ -62,6 +63,10 @@ export async function POST(request) {
   if (!message) return reply(400, { error: 'empty_message' });
   if (message.length > MAX_MESSAGE_LENGTH) return reply(400, { error: 'message_too_long' });
 
+  // 별명은 선택 항목이고, from 줄 하나에 들어가도록 공백과 줄바꿈을 한 칸으로 줄인다.
+  const nickname = typeof data?.nickname === 'string' ? data.nickname.replace(/\s+/g, ' ').trim() : '';
+  if (nickname.length > MAX_NICKNAME_LENGTH) return reply(400, { error: 'nickname_too_long' });
+
   const webhook = process.env.SLACK_WEBHOOK_URL;
   if (!webhook) {
     console.error('SLACK_WEBHOOK_URL is not set');
@@ -69,7 +74,8 @@ export async function POST(request) {
   }
 
   const time = new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' });
-  const text = `*한국역사연표 의견* (${label})\n${escapeSlack(message)}\n_${time}_`;
+  const signature = nickname ? `\nfrom. ${escapeSlack(nickname)} 님` : '';
+  const text = `*한국역사연표 의견* (${label})\n${escapeSlack(message)}\n_${time}_${signature}`;
 
   try {
     const res = await fetch(webhook, {

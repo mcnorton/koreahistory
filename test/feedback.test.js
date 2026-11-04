@@ -107,3 +107,32 @@ test('Vercel 주소에서 보낸 의견도 받는다', async () => {
   assert.equal(sent.length, 1);
   assert.equal(res.headers.get('access-control-allow-origin'), 'https://koreahistory-app.vercel.app');
 });
+
+test('별명이 있으면 메시지 마지막 줄에 보여 준다', async () => {
+  const res = await POST(req({ category: 'general', message: '좋아요', nickname: '  역사 선생님  ' }));
+  assert.equal(res.status, 200);
+  assert.equal(sent[0].body.text.split('\n').at(-1), 'from. 역사 선생님 님');
+});
+
+test('별명이 없거나 비어 있으면 from 줄을 넣지 않는다', async () => {
+  for (const nickname of [undefined, '', '   ', null, 123]) {
+    const res = await POST(req({ category: 'general', message: '좋아요', nickname }));
+    assert.equal(res.status, 200);
+  }
+  assert.equal(sent.length, 5);
+  for (const s of sent) assert.ok(!s.body.text.includes('from.'));
+});
+
+test('별명의 Slack 문법과 줄바꿈을 무력화한다', async () => {
+  await POST(req({ category: 'general', message: 'x', nickname: '<!channel>\n*가짜*\t줄' }));
+  const last = sent[0].body.text.split('\n').at(-1);
+  assert.equal(last, 'from. &lt;!channel&gt; *가짜* 줄 님');
+});
+
+test('너무 긴 별명을 거절한다', async () => {
+  assert.equal((await POST(req({ category: 'general', message: 'x', nickname: 'a'.repeat(30) }))).status, 200);
+  const res = await POST(req({ category: 'general', message: 'x', nickname: 'a'.repeat(31) }));
+  assert.equal(res.status, 400);
+  assert.equal((await res.json()).error, 'nickname_too_long');
+  assert.equal(sent.length, 1);
+});
