@@ -136,3 +136,12 @@ test('너무 긴 별명을 거절한다', async () => {
   assert.equal((await res.json()).error, 'nickname_too_long');
   assert.equal(sent.length, 1);
 });
+
+test('영어 페이지에서 보낸 의견은 출처를 표시한다', async () => {
+  await POST(req({ category: 'general', message: 'Hello', lang: 'en' }));
+  await POST(req({ category: 'general', message: '안녕', lang: 'fr' }));
+  await POST(req({ category: 'general', message: '안녕' }));
+  assert.match(sent[0].body.text, /\(자유 의견, 영어 페이지\)/);
+  assert.match(sent[1].body.text, /\(자유 의견\)/);
+  assert.match(sent[2].body.text, /\(자유 의견\)/);
+});

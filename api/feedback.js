@@ -75,7 +75,8 @@ export async function POST(request) {
 
   const time = new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' });
   const signature = nickname ? `\nfrom. ${escapeSlack(nickname)} 님` : '';
-  const text = `*한국역사연표 의견* (${label})\n${escapeSlack(message)}\n_${time}_${signature}`;
+  const source = data?.lang === 'en' ? ', 영어 페이지' : '';
+  const text = `*한국역사연표 의견* (${label}${source})\n${escapeSlack(message)}\n_${time}_${signature}`;
 
   try {
     const res = await fetch(webhook, {

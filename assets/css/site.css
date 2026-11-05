@@ -252,3 +252,19 @@ p { margin: 0 0 1em; }
   .top { padding-block: 14px; }
   .top nav { gap: 2px 14px; font-size: .875rem; }
 }
+
+/* 언어 */
+.top nav a.lang { padding-left: 18px; border-left: 1px solid var(--rule); }
+.note { border-left: 3px solid var(--gold-line); padding: 2px 0 2px 14px; margin: 20px 0; max-width: 36em; }
+
+/* 영어 페이지 */
+html[lang="en"] body { word-break: normal; overflow-wrap: break-word; line-height: 1.7; }
+html[lang="en"] .hero h1 { letter-spacing: -.01em; max-width: none; }
+html[lang="en"] .entry h2 { letter-spacing: 0; }
+html[lang="en"] .brand { font-size: 1.125rem; }
+html[lang="en"] .compare.labels { max-width: 28em; }
+html[lang="en"] .compare.labels thead th:last-child { color: var(--jjok); }
+html[lang="en"] .compare.labels tbody th { white-space: normal; }
+@media (max-width: 560px) {
+  .top nav a.lang { padding-left: 0; border-left: 0; }
+}

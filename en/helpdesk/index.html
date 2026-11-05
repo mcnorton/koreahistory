@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Feedback | Korea History Timeline</title>
+<meta name="description" content="Report a mistake, request an event, or share how you use the app.">
+<link rel="canonical" href="https://koreahistory.mcnorton.com/en/helpdesk/">
+<link rel="alternate" hreflang="ko" href="https://koreahistory.mcnorton.com/helpdesk/">
+<link rel="alternate" hreflang="en" href="https://koreahistory.mcnorton.com/en/helpdesk/">
+<link rel="alternate" hreflang="x-default" href="https://koreahistory.mcnorton.com/en/helpdesk/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ko_KR">
+<meta property="og:site_name" content="Korea History Timeline">
+<meta property="og:title" content="Feedback | Korea History Timeline">
+<meta property="og:description" content="Report a mistake, request an event, or share how you use the app.">
+<meta property="og:url" content="https://koreahistory.mcnorton.com/en/helpdesk/">
+<meta property="og:image" content="https://koreahistory.mcnorton.com/assets/img/og-en.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Korea History Timeline app introduction image">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#1b365d">
+<link rel="icon" href="/assets/img/icon-192.png">
+<link rel="apple-touch-icon" href="/assets/img/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Song+Myung&display=swap">
+<link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <a class="brand" href="/en/"><img class="brand-icon" src="/assets/img/app-icon.png" alt="" width="36" height="36">Korea History Timeline</a>
+  <nav aria-label="Main menu"><a href="/en/wiki/">User Guide</a><a href="/en/cases/">Use Cases</a><a href="/en/history/">Version History</a><a href="/en/helpdesk/" aria-current="page">Feedback</a><a href="/en/#install">Get the App</a><a class="lang" href="/helpdesk/" hreflang="ko" lang="ko">한국어</a></nav>
+</header>
+<main id="main">
+<article class="page">
+<h1>Feedback</h1>
+<p>Tell us about a mistake, an event you'd like added, or how you use the app. You're welcome to write in English.</p>
+<form id="feedback">
+  <label class="field"><span>Category</span>
+    <select name="category" required>
+      <option value="">Choose a category</option>
+      <option value="bug">Bug or error</option>
+      <option value="feature">Request</option>
+      <option value="case">Use case</option>
+      <option value="general">General feedback</option>
+    </select></label>
+  <label class="field"><span>Your message</span>
+    <textarea name="message" required maxlength="2000" placeholder="We'd love to hear from you.&#10;Please don't include personal information."></textarea></label>
+  <label class="field"><span>Nickname (optional)</span>
+    <input type="text" name="nickname" maxlength="30" autocomplete="nickname" placeholder="To credit you in the release notes"></label>
+  <div class="hp" aria-hidden="true"><label>Leave this blank <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+  <button class="btn" type="submit">Send</button>
+  <p class="status" id="status" role="status"></p>
+</form>
+</article>
+</main>
+<footer class="foot">
+  <nav aria-label="Site links"><a href="/en/">Home</a><a href="/en/wiki/">User Guide</a><a href="/en/cases/">Use Cases</a><a href="/en/history/">Version History</a><a href="/en/privacy/">Privacy Policy</a><a href="/en/helpdesk/" aria-current="page">Feedback</a></nav>
+  <span>2018-2026, McNorton&amp;Education</span>
+</footer>
+<script>
+(function () {
+  var URL_ = 'https://koreahistory-app.vercel.app/api/feedback';
+  var form = document.getElementById('feedback');
+  var status = document.getElementById('status');
+  var button = form.querySelector('button');
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    var category = form.category.value;
+    var message = form.message.value;
+    if (!category || !message.trim()) {
+      status.className = 'status bad';
+      status.textContent = 'Please choose a category and enter your message.';
+      return;
+    }
+    button.disabled = true;
+    status.className = 'status';
+    status.textContent = 'Sending...';
+    try {
+      var res = await fetch(URL_, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ category: category, message: message, nickname: form.nickname.value, website: form.website.value, lang: 'en' })
+      });
+      if (!res.ok) throw new Error('server');
+      form.reset();
+      status.className = 'status good';
+      status.textContent = 'Your feedback was sent. Thank you!';
+    } catch (err) {
+      status.className = 'status bad';
+      status.textContent = "Your feedback wasn't sent. Check your internet connection and try again.";
+    } finally {
+      button.disabled = false;
+    }
+  });
+})();
+</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Korea History Timeline","item":"https://koreahistory.mcnorton.com/en/"},{"@type":"ListItem","position":2,"name":"Feedback","item":"https://koreahistory.mcnorton.com/en/helpdesk/"}]}</script>
+</body>
+</html>
