@@ -8,7 +8,7 @@
 
 <p align="center"><strong>English</strong> | <a href="README.ko.md">한국어</a></p>
 
-<h3 align="center"><a href="https://koreahistory.mcnorton.com">Visit the official website: koreahistory.mcnorton.com</a></h3>
+<h3 align="center"><a href="https://koreahistory.mcnorton.com/en/">Visit the official website: koreahistory.mcnorton.com/en</a></h3>
 
 <p align="center">
   <a href="https://apps.apple.com/kr/app/%ED%95%9C%EA%B5%AD%EC%97%AD%EC%82%AC%EC%97%B0%ED%91%9C/id6749217619"><strong>Download on the App Store</strong></a>
@@ -23,13 +23,13 @@
   <img src="https://raw.githubusercontent.com/mcnorton/koreahistory/site/assets/img/shot-myhistory.webp" width="24%" alt="My History screen">
 </p>
 
-> The app and the website are currently in Korean.
+> The app is in Korean. The website is available in English and Korean.
 
 ## About
 
 See what happened in Korea and in the rest of the world in the same year, on a single screen. The app covers 827 events (464 Korean, 363 world) across 31 eras, and major events are recorded down to the date, not just the year.
 
-Students can use it to study, teachers can use it in class, and families can add their own events and view them as a personal timeline.
+Teachers can use it for lessons on Korean history, culture, and Hangul, students can use it to study, and families can add their own events and view them as a personal timeline.
 
 ## Features
 
@@ -41,7 +41,7 @@ Students can use it to study, teachers can use it in class, and families can add
 | **Search** | Find events by name, person, year, or tag. Results appear as you type. |
 | **My History** | Record events from your own life or family and view them as a timeline. |
 
-**The user guide and classroom ideas are on the [official website](https://koreahistory.mcnorton.com).**
+**The user guide and lesson ideas are on the [official website](https://koreahistory.mcnorton.com/en/).**
 
 ## Version history
 
