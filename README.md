@@ -1,68 +1,132 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/mcnorton/koreahistory/site/assets/img/icon-192.png" width="88" height="88" alt="한국역사연표 앱 아이콘">
+  <img src="https://raw.githubusercontent.com/mcnorton/koreahistory/site/assets/img/icon-192.png" width="88" height="88" alt="Korea History Timeline app icon">
 </p>
 
-<h1 align="center">한국역사연표</h1>
+<h1 align="center">한국역사연표<br>Korea History Timeline</h1>
 
-<p align="center">한국사와 세계사를 한 줄의 연표로 나란히 보는 모바일 앱</p>
+<p align="center">A mobile app that lays out Korean and world history side by side on one timeline</p>
 
-<p align="center"><strong>한국어</strong> | <a href="README.en.md">English</a></p>
+<p align="center"><strong>English</strong> | <a href="README.ko.md">한국어</a></p>
+
+<h3 align="center"><a href="https://koreahistory.mcnorton.com">Visit the official website: koreahistory.mcnorton.com</a></h3>
 
 <p align="center">
-  <a href="https://apps.apple.com/kr/app/%ED%95%9C%EA%B5%AD%EC%97%AD%EC%82%AC%EC%97%B0%ED%91%9C/id6749217619"><strong>App Store에서 받기</strong></a>
+  <a href="https://apps.apple.com/kr/app/%ED%95%9C%EA%B5%AD%EC%97%AD%EC%82%AC%EC%97%B0%ED%91%9C/id6749217619"><strong>Download on the App Store</strong></a>
   &nbsp;·&nbsp;
-  <a href="https://play.google.com/store/apps/details?id=com.mcnorton.korea_history"><strong>Google Play에서 받기</strong></a>
-  &nbsp;·&nbsp;
-  <a href="https://koreahistory.mcnorton.com"><strong>웹사이트</strong></a>
+  <a href="https://play.google.com/store/apps/details?id=com.mcnorton.korea_history"><strong>Get it on Google Play</strong></a>
 </p>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/mcnorton/koreahistory/site/assets/img/shot-home.webp" width="24%" alt="홈 화면">
-  <img src="https://raw.githubusercontent.com/mcnorton/koreahistory/site/assets/img/shot-timeline.webp" width="24%" alt="역사연표 화면">
-  <img src="https://raw.githubusercontent.com/mcnorton/koreahistory/site/assets/img/shot-search.webp" width="24%" alt="검색 화면">
-  <img src="https://raw.githubusercontent.com/mcnorton/koreahistory/site/assets/img/shot-myhistory.webp" width="24%" alt="나의 역사 화면">
+  <img src="https://raw.githubusercontent.com/mcnorton/koreahistory/site/assets/img/shot-home.webp" width="24%" alt="Home screen">
+  <img src="https://raw.githubusercontent.com/mcnorton/koreahistory/site/assets/img/shot-timeline.webp" width="24%" alt="Timeline screen">
+  <img src="https://raw.githubusercontent.com/mcnorton/koreahistory/site/assets/img/shot-search.webp" width="24%" alt="Search screen">
+  <img src="https://raw.githubusercontent.com/mcnorton/koreahistory/site/assets/img/shot-myhistory.webp" width="24%" alt="My History screen">
 </p>
 
-## 어떤 앱인가요
+> The app and the website are currently in Korean.
 
-같은 해에 한국과 세계에서 무슨 일이 있었는지 한 화면에서 비교할 수 있습니다. 31개 시대에 사건 827건(한국사 464건, 세계사 363건)을 담았고, 중요한 사건은 연도뿐 아니라 날짜까지 기록했습니다. 수치는 1.2.4 기준입니다.
+## About
 
-학생의 역사 공부와 교실 수업에 쓸 수 있고, 가족의 일을 나의 역사로 남겨 연표로 볼 수도 있습니다.
+See what happened in Korea and in the rest of the world in the same year, on a single screen. The app covers 827 events (464 Korean, 363 world) across 31 eras, and major events are recorded down to the date, not just the year.
 
-## 주요 기능
+Students can use it to study, teachers can use it in class, and families can add their own events and view them as a personal timeline.
 
-| 탭 | 할 수 있는 일 |
+## Features
+
+| Tab | What you can do |
 | --- | --- |
-| **홈** | 오늘의 양력, 단기, 간지, 음력을 보고, 오늘 날짜의 역사적 사건과 이달의 국경일, 과거 같은 날의 내 기록을 확인합니다. 화면 테마와 글자 크기도 여기서 바꿉니다. |
-| **역사연표** | 좌우로 넘기거나 목록에서 시대를 고릅니다. 지구본 버튼으로 세계사를 함께 보고, 사건의 링크로 위키백과 등 자세한 내용을 읽습니다. 태블릿 가로 화면에서는 이웃한 두 시대를 나란히 봅니다. |
-| **책갈피** | 사건에 표시한 책갈피를 모아 보고, 누르면 연표의 그 위치로 이동합니다. |
-| **검색** | 사건, 인물, 연도, 태그로 찾습니다. 입력하는 동안 결과가 나오고, 최근 검색어를 다시 쓸 수 있습니다. |
-| **나의 역사** | 나와 가족의 일을 날짜와 함께 기록해 연표로 봅니다. 파일로 백업하고 복원할 수 있습니다. |
+| **Home** | See today's date in the solar, Dangun, sexagenary, and lunar calendars, along with historical events from this date, this month's national holidays, and your own entries from the same day in past years. |
+| **Timeline** | Swipe between eras or pick one from the list. Tap the globe button to show world history alongside Korean history. |
+| **Bookmarks** | Collect the events you've bookmarked and jump back to them on the timeline. |
+| **Search** | Find events by name, person, year, or tag. Results appear as you type. |
+| **My History** | Record events from your own life or family and view them as a timeline. |
 
-자세한 사용법은 [사용설명서](https://koreahistory.mcnorton.com/wiki/)에, 수업과 가정에서 쓰는 방법은 [활용사례](https://koreahistory.mcnorton.com/cases/)에 있습니다.
+**The user guide and classroom ideas are on the [official website](https://koreahistory.mcnorton.com).**
 
-## 설치
+## Version history
 
-- **iPhone, iPad:** [App Store](https://apps.apple.com/kr/app/%ED%95%9C%EA%B5%AD%EC%97%AD%EC%82%AC%EC%97%B0%ED%91%9C/id6749217619)
-- **Android:** [Google Play](https://play.google.com/store/apps/details?id=com.mcnorton.korea_history)
+### Released
 
-스토어에서 "한국역사연표"를 검색해도 찾을 수 있습니다.
+#### 1.2.4 (October 13, 2026)
+- Added the history of the Korean independence movement during Japanese rule
+- Improved tag search and tagged major historical events
+- Made very large geological years easier to read
+- Tidied up era categories and some events
+- Added past Summer and Winter Olympic and Paralympic host information to world history
+- Fixed interface misalignment on some devices
 
-## 바로가기
+#### 1.2.3 (October 1, 2026)
+- Rearranged each era's events for richer timeline browsing
+- Rebuilt the interface in Material and Liquid Glass styles
+- Improved the expanded timeline view in landscape on tablets
 
-- [웹사이트](https://koreahistory.mcnorton.com)
-- [버전이력](https://koreahistory.mcnorton.com/history/)
-- [개인정보처리방침](https://koreahistory.mcnorton.com/privacy/)
-- [의견보내기](https://koreahistory.mcnorton.com/helpdesk/): 틀린 내용, 넣고 싶은 사건, 활용 사례를 알려 주세요.
+#### 1.1.5 (September 15, 2025)
+- Fixed errors in the history data
+- Reworded unclear descriptions
+- Added classroom ideas to the user guide in Help
 
-## 이 저장소
+#### 1.1.4 (August 26, 2025)
+- Added search history
+- Redesigned the My History timeline in a tree layout
+- Improved menu selection design
+- Improved the feedback page
+- Made the timeline easier to read
+- Simplified Help
+- Optimized internal code and fixed bugs
 
-| 브랜치 | 내용 |
-| --- | --- |
-| [`site`](https://github.com/mcnorton/koreahistory/tree/site) | 지금 운영 중인 웹사이트 |
-| `main` | 이 안내 문서와 이전 사이트 기록(`wiki.md`, `history.md`, `privacy.md`, `helpdesk.md`) |
+#### 1.0.17 (August 19, 2025)
+- Added the day of the week to the My History list
+- Added the sexagenary year next to the Dangun year
+- Added the history of women in the Korean independence movement
+- Fixed layout problems at different phone aspect ratios
+- Improved the interface
+- Fixed a date calculation error
+- Began adding the history of science and notable people
 
-앱 소스 코드는 이 저장소에 없습니다.
+#### 1.0.16 (August 14, 2025)
+- Fixed a lunar calendar calculation error
+- Added independence movement material for the 80th anniversary of Liberation
+- Fixed errors in Korean and world history categories
+- Expanded material with reference to the Doosan Encyclopedia
+
+#### 1.0.15
+- Released on the Apple App Store
+- Blocked intrusive ads
+
+#### 1.0.14
+- Expanded modern and contemporary history
+- Completed history keywords
+
+#### 1.0.13
+- Improved search
+- Changed the app icon
+- Added pastel color categories
+- Expanded the unified dynasty periods
+
+#### 1.0.12
+- Improved support for wide tablet screens
+- Released on Google Play
+
+#### 1.0.11
+- Moved search into its own menu
+- Added the My History timeline
+
+### Beta
+
+#### 1.0.9
+- Internal testing on Google Play
+- Categorized the history data
+
+### Alpha
+
+#### 0.0.10
+- Collected and merged three data sets
+- Removed duplicate data
+- Worked on the hard problem of collapsing and expanding the whole list
+
+#### 0.0.9
+- Started development with Flutter and Dart
+- Solved loss of data in very long lists
 
 ---
 
